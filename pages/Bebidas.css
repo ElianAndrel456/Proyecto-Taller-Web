@@ -1,0 +1,109 @@
+body {
+  font-family: 'peralta';
+  background-color: #111;
+  color: white;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+@media screen and (max-width: 400px) {
+  .title {
+    font-size: 1.5rem;
+  }
+}
+
+.subTitle {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.conteiner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 40px;
+  justify-items: center;
+  grid-row-gap: 8rem;
+}
+
+.card {
+  width: 500px;
+  background-color: #222;
+  border-radius: 10px;
+  height: 250px;
+  display: flex;
+  transition: all 0.3s ease-in;
+
+  /* Reflejo */
+  -webkit-box-reflect: below -100px -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(transparent),
+      to(rgba(255, 255, 255, 0.2))
+    );
+
+  animation-name: flip;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+}
+@keyframes flip {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px 0px gray;
+}
+.card-container {
+  padding: 0 5px 0 5px;
+  margin-left: 15px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.card-container h3 {
+  letter-spacing: 2px;
+  width: 100%;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-container:hover h3 {
+  text-shadow: 0 0 4px white;
+}
+.card-container span {
+  margin: 10px 0 10px 0;
+}
+.card-container button {
+  width: 40%;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid #aaa;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 1px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.card-container button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.img {
+  border-radius: 10px;
+  width: 200px;
+  height: 100%;
+}
