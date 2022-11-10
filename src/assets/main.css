@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Montez&display=swap');
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --font-normal: 400;
+  --size-navbar-height: 1.3rem;
+  --size-normal: 1rem;
+  --size-small: 0.8rem;
+  --title: 4.5rem;
+  --subtitle: 2.5rem;
+
+  /* DARK WHITE THEME */
+  --text-white: #fff;
+  --text-black: #000;
+  --black-hover: #aaa6;
+
+  --bg-white: #fff;
+  --white-hover: #fff9;
+  --bg-black: #1f1f1f;
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-text: var(--text-black);
+  --color-background: var(--bg-white);
+  --bg-transparent: rgba(255, 255, 255, 0.8);
+  --text-hover: var(--black-hover);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: var(--text-white);
+    --color-background: var(--bg-black);
+    --bg-transparent: rgba(0, 0, 0, 0.2);
+    --text-hover: var(--white-hover);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-size: var(--size-normal);
+  font-weight: var(--font-normal);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.title_text {
+  font-family: 'Montez', cursive;
+  font-size: 4rem;
+  margin: 1rem 0;
+}
