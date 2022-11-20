@@ -26,22 +26,33 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('welcome');
 });
+Route::get('/fastfood', function () {
+    return view('welcome');
+});
 
 Route::get('/sweet', function () {
     return view('welcome');
 });
-Route::get('/sweet/{id}', function () {
-    return view('welcome');
-});
+/* Route::get('/sweet/{id}', function () {
+return view('welcome');
+}); */
 Route::get('/drinks', function () {
     return view('welcome');
 });
-Route::get('/drinks/{id}', function () {
+
+/* Route::get('/drinks/{id}', function () {
+return view('welcome');
+}); */
+
+/* Route::get('/fastfood/{id}', function ($id) {
+return view('welcome', ['id' => $id]);
+}); */
+
+Route::get('/user', function () {
     return view('welcome');
 });
-Route::get('/fastfood', function () {
-    return view('welcome');
-});
-Route::get('/fastfood/{id}', function () {
+
+//En caso no encuentra la ruta devuelve a la pagina de inicio
+Route::fallback(function () {
     return view('welcome');
 });
