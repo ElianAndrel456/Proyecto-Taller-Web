@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\PaypalController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('quick', function () {
-    return 'Hello World';
-});
+Route::post("/create-order", [PaypalController::class, "createOrder"]);
+Route::get("/capture-order", [PaypalController::class, "captureOrder"]);
+Route::get("/cancel-order", [PaypalController::class, 'cancelOrder']);

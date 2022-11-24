@@ -29,7 +29,17 @@ const closeCart = () => {
                     <img :src="product.imgs[0]" alt="" />
                     <div class="info">
                         <span>{{ product.name }}</span>
-                        <span>Precio: {{ priceModify(product.price) }}</span>
+                        <span
+                            >Precio:
+                            {{
+                                priceModify(
+                                    String(
+                                        Number(product.price) *
+                                            Number(product.quantity)
+                                    )
+                                )
+                            }}</span
+                        >
                         <span>Cantidad: {{ product.quantity }}</span>
                     </div>
                 </div>

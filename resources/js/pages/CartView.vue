@@ -62,7 +62,9 @@ const redirect = (id: string) => {
                     </div>
                 </div>
                 <PriceComponent>
-                    <button class="btn">Finalizar Pedido</button>
+                    <RouterLink to="/pay" class="btn"
+                        >Finalizar Pedido</RouterLink
+                    >
                 </PriceComponent>
             </div>
         </div>
@@ -100,6 +102,7 @@ const redirect = (id: string) => {
     border: 1px solid var(--color-text);
     cursor: pointer;
     font-size: 1rem;
+    text-align: center;
     transition: all 0.3s ease;
 }
 .btn:hover {
