@@ -8,6 +8,10 @@ import ProductViewVue from "@/pages/ProductView.vue";
 import FastFoodViewVue from "@/pages/FastFoodView.vue";
 import SweetViewVue from "@/pages/SweetView.vue";
 import PayViewVue from "../pages/PayView.vue";
+import MissionViewVue from "../pages/MissionView.vue";
+import VisionViewVue from "../pages/VisionView.vue";
+import BookViewVue from "../pages/BookView.vue";
+import GrupoViewVue from "../pages/GrupoView.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -71,6 +75,26 @@ const router = createRouter({
             path: "/pay",
             name: "pay",
             component: PayViewVue,
+        },
+        {
+            path: "/mision",
+            name: "mision",
+            component: MissionViewVue,
+        },
+        {
+            path: "/vision",
+            name: "vision",
+            component: VisionViewVue,
+        },
+        {
+            path: "/book",
+            name: "book",
+            component: BookViewVue,
+        },
+        {
+            path: "/group",
+            name: "group",
+            component: GrupoViewVue,
         },
         {
             path: "/:pathMatch(.*)*",

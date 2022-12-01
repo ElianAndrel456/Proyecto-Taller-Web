@@ -3,18 +3,21 @@
 <template>
   <footer class="footer">
     <div class="footer__container">
-      <span><a href="pages/Mision.html">Mision</a></span>
-      <span><a href="pages/Vision.html">Vision</a></span>
+      <span><RouterLink to="/mision">Mision</RouterLink></span>
+      <span><RouterLink to="/vision">Vision</RouterLink></span>
       <span
         ><a href="https://wa.me/51935364598?text=Hola%20buen%20día"
           >Contacto</a
         ></span
       >
 
-      <span><a href="pages/HorarioAtencion.html">Horarios de Atencion</a></span>
+      <span><RouterLink to="/mision">Horarios de Atencion</RouterLink></span>
 
       <span>
-        <a href="pages/LibroReclamaciones.html">Libro de reclamaciones</a>
+        <RouterLink to="/book">Libro de reclamaciones</RouterLink>
+      </span>
+      <span>
+        <RouterLink to="/group">Desarrollado por grupo 2</RouterLink>
       </span>
     </div>
     <div class="social">

@@ -18,7 +18,6 @@ const cartStore = useCartStore();
 //! Activar al finalizar la vista de pago
 if (cartStore.cart.products.length === 0) {
     router.push("/cart");
-    //ENVIARA A LA PAGINA DE API STRIPE
 }
 
 const sendInfo = async () => {
@@ -43,7 +42,9 @@ const sendInfo = async () => {
             total: cartStore.cart.total,
         }
     );
+
     console.log(response.data);
+
     //redireccionar a otra pagina de pago paypal
     window.location.href = response.data.links[1].href;
 };

@@ -18,6 +18,8 @@ class PaypalController extends Controller
 
         //convert PEN a USD
         $total = $total / 3.5;
+        //redondear a 2 decimales
+        $total = round($total, 2);
 
         $order = [
             "intent" => "CAPTURE",
@@ -40,9 +42,11 @@ class PaypalController extends Controller
 
         //generate random paypal id 
         $paypalOrderId = uniqid();
-        $autorization = env("PAYPAL_API_AUTHORIZATION");
+
 
         $url = env("PAYPAL_API_TEST") . "/v2/checkout/orders";
+        $clientID = env("PAYPAL_API_ID");
+        $clienteSK = env("PAYPAL_API_SECRET");
         //Hacer un peticion post con autorizacion en php
         $curl = curl_init();
         curl_setopt_array($curl, [
@@ -55,7 +59,7 @@ class PaypalController extends Controller
         CURLOPT_CUSTOMREQUEST => "POST",
         CURLOPT_POSTFIELDS => "{\"intent\":\"CAPTURE\",\"purchase_units\":[{\"reference_id\":\"d9f80740-38f0-11e8-b467-0ed5f89f718b\",\"amount\":{\"currency_code\":\"USD\",\"value\":$total}}],\"payment_source\":{\"paypal\":{\"experience_context\":{\"payment_method_preference\":\"IMMEDIATE_PAYMENT_REQUIRED\",\"payment_method_selected\":\"PAYPAL\",\"brand_name\":\"Mokita Store\",\"locale\":\"en-US\",\"landing_page\":\"LOGIN\",\"shipping_preference\":\"SET_PROVIDED_ADDRESS\",\"user_action\":\"PAY_NOW\",\"return_url\":\"http://localhost:8000/api/capture-order\",\"cancel_url\":\"http://localhost:8000/api/cancel-order\"}}}}",
         CURLOPT_HTTPHEADER => [
-                "Authorization: Basic $autorization",
+                "Authorization: Basic QVNSbndfLUt1WTJrdWgycnl0Rm1TZkZLTFpDN2d0VHpaSkZBOXZzRjFrMXBrbnhmNXFuNzNmTFRET2ctbHF4OUY3MUVVM2FteEdrWkFSalI6RUxRR2dOR0RuYnFzempoN0JtMzI5S29vTFlUY1RPVGJucF9pVi1iUzJqZkJiWlFzRG1RcUxTUjhsSTZweHVJQW9WNElONUc4djBOTUVGTko=",
                 "Content-Type: application/json",
                 "PayPal-Request-ID:   $paypalOrderId"
             ],
@@ -87,7 +91,7 @@ class PaypalController extends Controller
 
         //Redireccionar a una pagina de exito
         $url = env("PAYPAL_API_TEST") . "/v2/checkout/orders/$token/capture";
-        $autorization = env("PAYPAL_API_AUTHORIZATION");
+
         $curl = curl_init();
         curl_setopt_array($curl, [
         CURLOPT_URL => $url,
@@ -98,7 +102,7 @@ class PaypalController extends Controller
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => "POST",
         CURLOPT_HTTPHEADER => [
-                "Authorization: Basic $autorization",
+                "Authorization: Basic QVNSbndfLUt1WTJrdWgycnl0Rm1TZkZLTFpDN2d0VHpaSkZBOXZzRjFrMXBrbnhmNXFuNzNmTFRET2ctbHF4OUY3MUVVM2FteEdrWkFSalI6RUxRR2dOR0RuYnFzempoN0JtMzI5S29vTFlUY1RPVGJucF9pVi1iUzJqZkJiWlFzRG1RcUxTUjhsSTZweHVJQW9WNElONUc4djBOTUVGTko=",
                 "Content-Type: application/json",
             ],
         ]);
@@ -126,6 +130,7 @@ class PaypalController extends Controller
     public function cancelOrder()
     {
         //Redirigir a una pagina de cancelacion
+
         return redirect()->away("http://localhost:8000");
     }
 
